@@ -60,11 +60,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {//REC
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final String name = values.get(position); //RECUPERA ELEMENTO QUE QUIERES VISUALIZAR
+        final ViewHolder vh= holder; //HEMOS TENIDO QUE CREARLA PORQUE ESTA ARRIBA EN LA CLASE Y EN EL REMOVE NO LA PODRIAMOS UTILIZAR
+
         holder.txtHeader.setText(name);
         holder.txtHeader.setOnClickListener(new OnClickListener() { //ASIGNARLE EVENTO DE UN CLICK
             @Override
             public void onClick(View v) {
-                remove(position); //ELIMINA ESA POSICION
+                remove(vh.getAdapterPosition()); //ELIMINA ESA POSICION, NO ES FIJA LA POSICIÓN VA CAMBIANDO DINAMICAMENTE
             }
         });
 
