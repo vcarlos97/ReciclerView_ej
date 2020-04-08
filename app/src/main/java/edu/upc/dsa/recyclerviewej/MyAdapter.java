@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {//RECETA DE COCINA QUE CASI SIEMPRE FUNCIONA, CAMBIAN MUY POCAS COSAS
     private List<String> values;
 
     // Provide a reference to the views for each data item
@@ -45,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) { //RECETA
         // create a new view
         LayoutInflater inflater = LayoutInflater.from (parent.getContext());
         View v = inflater.inflate(R.layout.row_layout, parent, false);
@@ -56,15 +56,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) { //Cuando un elemento hace binding
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = values.get(position);
+        final String name = values.get(position); //RECUPERA ELEMENTO QUE QUIERES VISUALIZAR
         holder.txtHeader.setText(name);
-        holder.txtHeader.setOnClickListener(new OnClickListener() {
+        holder.txtHeader.setOnClickListener(new OnClickListener() { //ASIGNARLE EVENTO DE UN CLICK
             @Override
             public void onClick(View v) {
-                remove(position);
+                remove(position); //ELIMINA ESA POSICION
             }
         });
 
@@ -73,7 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
-    public int getItemCount() {
+    public int getItemCount() { //PARA QUE FUNCIONE TIENE QUE TENER CUANTOS ELEMNTOS TIENE
         return values.size();
     }
 
