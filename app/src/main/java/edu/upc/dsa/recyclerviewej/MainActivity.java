@@ -3,23 +3,24 @@ package edu.upc.dsa.recyclerviewej;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+    private Tracks_API api;
+    private List<Track> trackList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //LLAMAMOS ONCREATE PADRE
         setContentView(R.layout.activity_main);//LAYOUT QUE QUEREMOS HACER
 
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);// OBTENEMOS EL RECYCLERVIWE
+
+        recyclerView = findViewById(R.id.my_recycler_view);// OBTENEMOS EL RECYCLERVIWE
         // use this setting to
         // improve performance if you know that changes
         // in content do not change the layout size
