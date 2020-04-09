@@ -12,9 +12,10 @@ import retrofit2.http.Path;
 
 
 
-public abstract class Tracks_API {
+public interface Tracks_API {
     @GET("tracks")
-    Call<List<Track>> getTracks() ;
+    Call<List<Track>> getTracks();
+
 
     @PUT("tracks")
     Call<Void> updateTrack (@Body Track track);

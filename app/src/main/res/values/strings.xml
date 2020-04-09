@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">RecyclerViewEj</string>
+    <string name="newtrack" />
+    <string name="newtrackid" />
+    <string name="newtracktitle" />
+    <string name="newtracksinger" />
+    <string name="newtrackpost" />
+    <string name="updatetrack" />
+    <string name="updatetracktitle" />
+    <string name="updatetracksinger" />
+    <string name="viewtrackid" />
+    <string name="viewtrackidfield" />
+    <string name="viewtracktitel" />
+    <string name="viewtracktitelfield" />
+    <string name="viewtracksinger" />
+    <string name="viewtracksingerfield" />
 </resources>
