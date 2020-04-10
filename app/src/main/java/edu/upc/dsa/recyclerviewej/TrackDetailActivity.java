@@ -84,13 +84,31 @@ public class TrackDetailActivity extends AppCompatActivity {
         edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                update_intent.putExtra("id_edit", id);
+                startActivity(update_intent);
+            }
+        });
+    }
+
+    public void deleteTrack (String id){
+        Call<Void> call = api.deleteTrack(id);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(!response.isSuccessful()){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Error:" +response.code(), Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast toast = Toast.makeText(getApplicationContext(), "No se puede borrar de la API", Toast.LENGTH_LONG);
+                toast.show();
 
             }
         });
-
-
-
-
     }
 }
 
