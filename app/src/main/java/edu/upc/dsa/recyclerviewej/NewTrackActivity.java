@@ -47,8 +47,9 @@ public class NewTrackActivity extends AppCompatActivity {
                 }
                 else {
                     Track t = new Track(idtext, titletext, singertext);
-                    Intent intent = new Intent(NewTrackActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    NewTrackActivity.this.finish();
+                   // Intent intent = new Intent(NewTrackActivity.this, MainActivity.class);
+                    //startActivity(intent);
                 }
 
             }
@@ -63,7 +64,7 @@ public class NewTrackActivity extends AppCompatActivity {
 
                 if(!response.isSuccessful()){
                     Toast toast = Toast.makeText(getApplicationContext(), "Error: "+response.code(), Toast.LENGTH_LONG);
-                    return;
+                    toast.show();
                 }
 
             }
@@ -72,6 +73,7 @@ public class NewTrackActivity extends AppCompatActivity {
             public void onFailure(Call<Track> call, Throwable t) {
 
                 Toast toast = Toast.makeText(getApplicationContext(), "No se puede enviar a la API", Toast.LENGTH_LONG);
+                toast.show();
             }
         });
     }
