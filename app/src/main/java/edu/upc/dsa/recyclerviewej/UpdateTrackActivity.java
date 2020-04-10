@@ -28,7 +28,7 @@ public class UpdateTrackActivity extends AppCompatActivity {
         setContentView(R.layout.put_layout);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/swagger/")
+                .baseUrl("http://147.83.7.203:8080/swagger/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

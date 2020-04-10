@@ -3,18 +3,14 @@ package edu.upc.dsa.recyclerviewej;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.widget.Toolbar;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState); //LLAMAMOS ONCREATE PADRE
         setContentView(R.layout.activity_main);//LAYOUT QUE QUEREMOS HACER
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
 
         recyclerView = findViewById(R.id.my_recycler_view);// OBTENEMOS EL RECYCLERVIWE
@@ -49,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/swagger/")
+                .baseUrl("http://147.83.7.203:8080/swagger/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

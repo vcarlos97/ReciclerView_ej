@@ -26,7 +26,7 @@ public class TrackDetailActivity extends AppCompatActivity {
         setContentView(R.layout.view_track_layout);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/swagger/")
+                .baseUrl("http://147.83.7.203:8080/swagger/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
