@@ -26,7 +26,7 @@ public class TrackDetailActivity extends AppCompatActivity {
         setContentView(R.layout.view_track_layout);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://147.83.7.203:8080/swagger/")
+                .baseUrl("http://147.83.7.203:8080/dsaApp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -41,16 +41,15 @@ public class TrackDetailActivity extends AppCompatActivity {
         final Intent intent_main = new Intent(TrackDetailActivity.this, MainActivity.class);
         final Intent update_intent = new Intent(TrackDetailActivity.this, UpdateTrackActivity.class);
 
-        final TextView id_text = (TextView) findViewById(R.id.viewtrackidfield);
-        TextView title_text = (TextView) findViewById(R.id.viewtracktitelfield);
-        TextView singer_text = (TextView) findViewById(R.id.viewtracksingerfield);
+        final TextView id_text = (TextView) findViewById(R.id.track_id);
+        TextView title_text = (TextView) findViewById(R.id.track_title);
+        TextView singer_text = (TextView) findViewById(R.id.track_singer);
         id_text.setText(id);
         title_text.setText(title);
         singer_text.setText(singer);
 
-        Button edit_button = (Button) findViewById(R.id.btneditar);
-        Button delete_button = (Button) findViewById(R.id.btnborrar);
-        Button info_button = (Button) findViewById(R.id.btninfo);
+        Button edit_button = (Button) findViewById(R.id.update_btn);
+        Button delete_button = (Button) findViewById(R.id.delete_btn);
 
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,16 +24,16 @@ public class NewTrackActivity extends AppCompatActivity {
         setContentView(R.layout.post_layout);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://147.83.7.203/swagger/")
+                .baseUrl("http://147.83.7.203/dsaApp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         api = retrofit.create(Tracks_API.class);
 
-        Button send = (Button) findViewById(R.id.newtrackpost);
-        final EditText id = (EditText) findViewById(R.id.newtrackidfield);
-        final EditText title = (EditText) findViewById(R.id.newtracktitlefield);
-        final EditText singer = (EditText) findViewById(R.id.newtracksingerfield);
+        Button send = (Button) findViewById(R.id.add_button);
+        final EditText id = (EditText) findViewById(R.id.track_id);
+        final EditText title = (EditText) findViewById(R.id.track_title);
+        final EditText singer = (EditText) findViewById(R.id.track_singer);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,11 +45,12 @@ public class NewTrackActivity extends AppCompatActivity {
                 if (titletext.equals("") || idtext.equals("") || singertext.equals("")) {
                     Toast.makeText(NewTrackActivity.this, "ficheros llenos", Toast.LENGTH_LONG);
                 }
+
                 else {
                     Track t = new Track(idtext, titletext, singertext);
-                    NewTrackActivity.this.finish();
-                   // Intent intent = new Intent(NewTrackActivity.this, MainActivity.class);
-                    //startActivity(intent);
+                    saveTrack(t);
+                    Intent intent = new Intent(NewTrackActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
 
             }

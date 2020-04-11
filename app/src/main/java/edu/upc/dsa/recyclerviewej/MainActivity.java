@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //LLAMAMOS ONCREATE PADRE
         setContentView(R.layout.activity_main);//LAYOUT QUE QUEREMOS HACER
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
 
         recyclerView = findViewById(R.id.my_recycler_view);// OBTENEMOS EL RECYCLERVIWE
@@ -45,24 +43,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://147.83.7.203:8080/swagger/")
+                .baseUrl("http://147.83.7.203:8080/dsaApp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         api = retrofit.create(Tracks_API.class);
 
-        api.getTracks();
-
-        Button bt = findViewById(R.id.button);
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, NewTrackActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-    public void getTracks(){
         Call<List<Track>> call = api.getTracks();
 
         call.enqueue(new Callback<List<Track>>() {
@@ -83,6 +69,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(),"Error inesperado", Toast.LENGTH_LONG);
                 toast.show();
 
+            }
+        });
+
+        Button bt = findViewById(R.id.add_button);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, NewTrackActivity.class);
+                startActivity(i);
             }
         });
     }

@@ -28,7 +28,7 @@ public class UpdateTrackActivity extends AppCompatActivity {
         setContentView(R.layout.put_layout);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://147.83.7.203:8080/swagger/")
+                .baseUrl("http://147.83.7.203:8080/dsaApp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -38,9 +38,9 @@ public class UpdateTrackActivity extends AppCompatActivity {
         final Intent main_intent = new Intent(UpdateTrackActivity.this, MainActivity.class);
         final String id = track_details_intent.getStringExtra("id_edit");
 
-        Button put = (Button) findViewById(R.id.updatetrackput);
-        final EditText title = (EditText) findViewById(R.id.newtracktitlefield);
-        final EditText singer = (EditText) findViewById(R.id.newtracksingerfield);
+        Button put = (Button) findViewById(R.id.update_btn);
+        final EditText title = (EditText) findViewById(R.id.track_title);
+        final EditText singer = (EditText) findViewById(R.id.track_singer);
 
         put.setOnClickListener(new View.OnClickListener() {
             @Override

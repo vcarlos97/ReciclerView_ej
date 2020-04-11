@@ -16,7 +16,6 @@ public interface Tracks_API {
     @GET("tracks")
     Call<List<Track>> getTracks();
 
-
     @PUT("tracks")
     Call<Void> updateTrack (@Body Track track);
 

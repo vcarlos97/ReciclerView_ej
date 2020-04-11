@@ -24,14 +24,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {//REC
         public TextView title;
         public TextView id;
         public View layout;
-        public Button imagen;
 
         public ViewHolder(View v) {
             super(v);
             layout = v;
             title = (TextView) v.findViewById(R.id.firstLine);
             id = (TextView) v.findViewById(R.id.secondLine);
-            imagen = (Button) v.findViewById(R.id.icon);
         }
     }
 
@@ -71,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {//REC
         final ViewHolder vh = holder; //HEMOS TENIDO QUE CREARLA PORQUE ESTA ARRIBA EN LA CLASE Y EN EL REMOVE NO LA PODRIAMOS UTILIZAR
         holder.title.setText(track.getTitle());
         holder.id.setText(track.getSinger());
-        holder.imagen.setOnClickListener(new OnClickListener() { //ASIGNARLE EVENTO DE UN CLICK
+        holder.title.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent trackview = new Intent(activity.getApplicationContext(), TrackDetailActivity.class);
