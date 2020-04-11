@@ -2,9 +2,9 @@ package edu.upc.dsa.recyclerviewej;
 
 public class Track {
 
-    private String id;
-    private String title;
-    private String singer;
+    public String id;
+    public String title;
+    public String singer;
 
     public Track (String id, String title, String singer){
         this.id=id;
